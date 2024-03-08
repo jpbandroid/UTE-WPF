@@ -719,6 +719,17 @@ That's all there is to it!"/>
                         <Fluent:Button Header="Open" Click="Open" LargeIcon="open.png"/>
                         <Fluent:Button Header="Save"  Click="Save" LargeIcon="save.png"/>
                     </Fluent:RibbonGroupBox>
+                    <Fluent:RibbonGroupBox Header="Font">
+                        <StackPanel Orientation="Horizontal" Margin="4">
+                            <Fluent:ComboBox x:Name="FontFamilyBox" Width="150" SelectionChanged="FontFamilyBox_SelectionChanged" />
+                            <Fluent:ComboBox x:Name="FontSizeBox" IsEditable="True" Width="50" TextBoxBase.TextChanged="FontSizeBox_TextChanged"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="4">
+                            <Fluent:ToggleButton x:Name="Bold" Icon="bold.png" Size="Middle"/>
+                            <Fluent:ToggleButton x:Name="Italic" Icon="italic.png" Size="Middle"/>
+                            <Fluent:ToggleButton x:Name="Underline" Icon="underline.png" Size="Middle"/>
+                        </StackPanel>
+                    </Fluent:RibbonGroupBox>
                 </Fluent:RibbonTabItem>
                 <Fluent:RibbonTabItem Header="Help">
                     <Fluent:RibbonGroupBox Header="About">
@@ -730,7 +741,7 @@ That's all there is to it!"/>
 
 
 
-        <RichTextBox x:Name="editor" Grid.Row="2">
+        <RichTextBox x:Name="editor" SelectionChanged="editor_SelectionChanged" Grid.Row="2">
 
         </RichTextBox>
     </Grid>

@@ -11,8 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using unvell.ReoGrid;
-using unvell.ReoGrid.IO.OpenXML.Schema;
 using AutoUpdaterDotNET;
 
 namespace UltraTextEdit
@@ -30,6 +28,10 @@ namespace UltraTextEdit
             string extendedUserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             string userName = Environment.UserName;
             user.Text = userName;
+            FontFamilyBox.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
+            FontSizeBox.ItemsSource = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
+            FontFamilyBox.SelectedItem = "Segoe UI";
+            FontSizeBox.SelectedItem = 12;
             isDebug = false;
         }
 
@@ -80,6 +82,32 @@ namespace UltraTextEdit
             AboutWindow about = new AboutWindow();
             about.Show();
             about.Activate();
+        }
+
+        private void FontFamilyBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FontFamilyBox.SelectedItem != null)
+                editor.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontFamilyBox.SelectedItem);
+        }
+
+        private void FontSizeBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            editor.Selection.ApplyPropertyValue(Inline.FontSizeProperty, double.Parse(FontSizeBox.Text));
+        }
+
+        private void editor_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            object temp = editor.Selection.GetPropertyValue(Inline.FontWeightProperty);
+            Bold.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold));
+            temp = editor.Selection.GetPropertyValue(Inline.FontStyleProperty);
+            Italic.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic));
+            temp = editor.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            Underline.IsChecked = (temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline));
+
+            temp = editor.Selection.GetPropertyValue(Inline.FontFamilyProperty);
+            FontFamilyBox.SelectedItem = temp;
+            temp = editor.Selection.GetPropertyValue(Inline.FontSizeProperty);
+            FontSizeBox.Text = temp.ToString();
         }
     }
 }

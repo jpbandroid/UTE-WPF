@@ -16,11 +16,14 @@
 
   <ItemGroup>
     <None Remove="add.png" />
+    <None Remove="bold.png" />
     <None Remove="info.png" />
+    <None Remove="italic.png" />
     <None Remove="open.png" />
     <None Remove="save.png" />
     <None Remove="SplashScreen1.png" />
     <None Remove="sync.png" />
+    <None Remove="underline.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,7 +44,13 @@
     <Resource Include="add.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="bold.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="italic.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="open.png">
@@ -51,6 +60,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="sync.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="underline.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
