@@ -1,4 +1,4 @@
-﻿<Fluent:RibbonWindow x:Class="UltraTextEdit.MainWindow"
+﻿<Window x:Class="UltraTextEdit.MainWindow"
                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:Fluent="urn:fluent-ribbon"
@@ -716,4 +716,4 @@ That's all there is to it!"/>
 
         </RichTextBox>
     </Grid>
-</Fluent:RibbonWindow>
+</Window>
