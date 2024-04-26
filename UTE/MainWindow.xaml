@@ -696,9 +696,9 @@ That's all there is to it!"/>
                             <Fluent:ComboBox x:Name="FontSizeBox" IsEditable="True" Width="50" TextBoxBase.TextChanged="FontSizeBox_TextChanged"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="4">
-                            <Fluent:ToggleButton x:Name="Bold" Icon="bold.png" Size="Middle"/>
-                            <Fluent:ToggleButton x:Name="Italic" Icon="italic.png" Size="Middle"/>
-                            <Fluent:ToggleButton x:Name="Underline" Icon="underline.png" Size="Middle"/>
+                            <Fluent:ToggleButton x:Name="Bold" Icon="bold.png" SizeDefinition="Small"/>
+                            <Fluent:ToggleButton x:Name="Italic" Icon="italic.png" SizeDefinition="Small"/>
+                            <Fluent:ToggleButton x:Name="Underline" Icon="underline.png" SizeDefinition="Small"/>
                         </StackPanel>
                     </Fluent:RibbonGroupBox>
                 </Fluent:RibbonTabItem>
