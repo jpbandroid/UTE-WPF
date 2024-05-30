@@ -11,8 +11,7 @@
 ui:WindowHelper.SystemBackdropType="Tabbed"
 ui:TitleBar.IsBackButtonVisible="False"
 ui:WindowHelper.UseModernWindowStyle="True">
-    <local1:DpiDecorator>
-        <Grid>
+    <Grid>
             <StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="8">
                     <Image Source="/WindowIcon.ico" Height="64" Width="64"/>
@@ -28,5 +27,4 @@ ui:WindowHelper.UseModernWindowStyle="True">
                 </StackPanel>
             </StackPanel>
         </Grid>
-    </local1:DpiDecorator>
 </Window>

@@ -13,8 +13,7 @@ ui:TitleBar.ExtendViewIntoTitleBar="True"
 ui:WindowHelper.SystemBackdropType="Tabbed"
 ui:TitleBar.IsBackButtonVisible="False"
 ui:WindowHelper.UseModernWindowStyle="True">
-    <local1:DpiDecorator>
-        <Grid>
+    <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="48" />
                 <RowDefinition Height="Auto"/>
@@ -717,5 +716,4 @@ That's all there is to it!"/>
 
             </RichTextBox>
         </Grid>
-    </local1:DpiDecorator>
 </Window>
