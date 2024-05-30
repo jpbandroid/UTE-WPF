@@ -5,22 +5,23 @@
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-   xmlns:local="clr-namespace:UltraTextEdit"
-   mc:Ignorable="d"
+   xmlns:local="clr-namespace:UltraTextEdit" xmlns:local1="clr-namespace:UTE"
+        mc:Ignorable="d"
    Title="UltraTextEdit" Height="450" Width="800"
         ui:ThemeManager.IsThemeAware="True"
 ui:TitleBar.ExtendViewIntoTitleBar="True"    
 ui:WindowHelper.SystemBackdropType="Tabbed"
 ui:TitleBar.IsBackButtonVisible="False"
 ui:WindowHelper.UseModernWindowStyle="True">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" x:Name="TitleBar" Orientation="Horizontal" Height="48" VerticalAlignment="Top">
-            <Border
+    <local1:DpiDecorator>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" x:Name="TitleBar" Orientation="Horizontal" Height="48" VerticalAlignment="Top">
+                <Border
             x:Name="AppTitleBar"
             Height="40"
             Margin="12,2,0,0"
@@ -28,82 +29,82 @@ ui:WindowHelper.UseModernWindowStyle="True">
             Background="Transparent"
             Canvas.ZIndex="1"
             IsHitTestVisible="True">
-                <StackPanel Orientation="Horizontal" Width="Auto">
-                    <Image
+                    <StackPanel Orientation="Horizontal" Width="Auto">
+                        <Image
                     x:Name="AppFontIcon"
                     Width="24"
                     Height="24"
                     Margin="0,0,0,0"
                     VerticalAlignment="Center"
                         Source="/WindowIcon.ico"/>
-                    <TextBlock
+                        <TextBlock
                     x:Name="AppTitle"
                     Margin="12,2,4,0"
                     VerticalAlignment="Center"
                     Text="Untitled - UltraTextEdit"
                     FontSize="12"
                     FontWeight="Normal" Foreground="#0078d7"/>
-                </StackPanel>
-            </Border>
-            <Grid x:Name="InsiderGrid">
-                <Button Background="#FFFFC225" Width="50" Height="25" Padding="0" Click="showinsiderinfo">
-                    <Grid>
-                        <TextBlock Text="DEV" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
-                    </Grid>
-                </Button>
-                <ui:TeachingTip x:Name="ToggleThemeTeachingTip1"
+                    </StackPanel>
+                </Border>
+                <Grid x:Name="InsiderGrid">
+                    <Button Background="#FFFFC225" Width="50" Height="25" Padding="0" Click="showinsiderinfo">
+                        <Grid>
+                            <TextBlock Text="DEV" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
+                        </Grid>
+                    </Button>
+                    <ui:TeachingTip x:Name="ToggleThemeTeachingTip1"
 Title="Dev Channel"
 Subtitle="The Dev Channel is the Insider Channel that receives builds with the latest features and may contain features that may not get released to the public. Beware, as these builds may be buggy or crash!">
-                    <ui:TeachingTip.IconSource>
-                        <ui:FontIconSource  Glyph="&#xF1AD;"/>
-                    </ui:TeachingTip.IconSource>
-                </ui:TeachingTip>
-            </Grid>
-            <TextBlock
+                        <ui:TeachingTip.IconSource>
+                            <ui:FontIconSource  Glyph="&#xF1AD;"/>
+                        </ui:TeachingTip.IconSource>
+                    </ui:TeachingTip>
+                </Grid>
+                <TextBlock
                     x:Name="UnsavedTextBlock"
                     Padding="5,0"
                     VerticalAlignment="Center"
                     Text="* Not Saved"
                     ToolTipService.ToolTip="There are unsaved changes." />
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Fluent:Ribbon>
-                <!--Backstage-->
-                <Fluent:Ribbon.StartScreen>
-                    <Fluent:StartScreen Header="UltraTextEdit" IsOpen="True">
-                        <Fluent:StartScreenTabControl>
-                            <Fluent:StartScreenTabControl.LeftContent>
-                                <TextBlock Padding="16" Text="UltraTextEdit" Foreground="White" FontWeight="SemiBold" FontSize="36"/>
-                            </Fluent:StartScreenTabControl.LeftContent>
-                            <Fluent:StartScreenTabControl.RightContent>
-                                <StackPanel>
-                                    <TextBlock Padding="16" Text="Welcome!" FontWeight="SemiBold" FontSize="36"/>
-                                    <TextBlock Padding="16" Text="Create" FontWeight="SemiBold" FontSize="16"/>
-                                    <Fluent:Button Header="New document" Icon="add.png"/>
-                                </StackPanel>
-                            </Fluent:StartScreenTabControl.RightContent>
-                        </Fluent:StartScreenTabControl>
-                    </Fluent:StartScreen>
-                </Fluent:Ribbon.StartScreen>
-                <Fluent:Ribbon.Menu>
-                    <Fluent:Backstage>
-                        <Fluent:BackstageTabControl>
-                            <Fluent:BackstageTabItem Header="About">
-                                <StackPanel>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="8">
-                                        <Image Source="/WindowIcon.ico" Height="64" Width="64"/>
-                                        <TextBlock VerticalAlignment="Center" Text="UltraTextEdit" Foreground="#0078d7" FontSize="36" FontWeight="SemiBold"/>
-                                    </StackPanel>
-                                    <TextBlock Text="UltraTextEdit, version 2405 (16.0.14527.20226)"></TextBlock>
-                                    <TextBlock Text="© 2024 ErrorTek/jpbandroid. Licensed under the MIT License."></TextBlock>
-                                </StackPanel>
-                            </Fluent:BackstageTabItem>
-                            <Fluent:BackstageTabItem Header="Open Source Licenses">
-                                <ScrollViewer>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <Fluent:Ribbon>
+                    <!--Backstage-->
+                    <Fluent:Ribbon.StartScreen>
+                        <Fluent:StartScreen Header="UltraTextEdit" IsOpen="True">
+                            <Fluent:StartScreenTabControl>
+                                <Fluent:StartScreenTabControl.LeftContent>
+                                    <TextBlock Padding="16" Text="UltraTextEdit" Foreground="White" FontWeight="SemiBold" FontSize="36"/>
+                                </Fluent:StartScreenTabControl.LeftContent>
+                                <Fluent:StartScreenTabControl.RightContent>
                                     <StackPanel>
-                                    <TextBlock FontWeight="SemiBold" Text="UltraTextEdit" FontSize="24"/>
-                                    <TextBlock Text="Licensed under the MIT License."/>
-                                    <TextBlock TextWrapping="Wrap" Text="MIT License
+                                        <TextBlock Padding="16" Text="Welcome!" FontWeight="SemiBold" FontSize="36"/>
+                                        <TextBlock Padding="16" Text="Create" FontWeight="SemiBold" FontSize="16"/>
+                                        <Fluent:Button Header="New document" Icon="add.png"/>
+                                    </StackPanel>
+                                </Fluent:StartScreenTabControl.RightContent>
+                            </Fluent:StartScreenTabControl>
+                        </Fluent:StartScreen>
+                    </Fluent:Ribbon.StartScreen>
+                    <Fluent:Ribbon.Menu>
+                        <Fluent:Backstage>
+                            <Fluent:BackstageTabControl>
+                                <Fluent:BackstageTabItem Header="About">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="8">
+                                            <Image Source="/WindowIcon.ico" Height="64" Width="64"/>
+                                            <TextBlock VerticalAlignment="Center" Text="UltraTextEdit" Foreground="#0078d7" FontSize="36" FontWeight="SemiBold"/>
+                                        </StackPanel>
+                                        <TextBlock Text="UltraTextEdit, version 2405 (16.0.14527.20226)"></TextBlock>
+                                        <TextBlock Text="© 2024 ErrorTek/jpbandroid. Licensed under the MIT License."></TextBlock>
+                                    </StackPanel>
+                                </Fluent:BackstageTabItem>
+                                <Fluent:BackstageTabItem Header="Open Source Licenses">
+                                    <ScrollViewer>
+                                        <StackPanel>
+                                            <TextBlock FontWeight="SemiBold" Text="UltraTextEdit" FontSize="24"/>
+                                            <TextBlock Text="Licensed under the MIT License."/>
+                                            <TextBlock TextWrapping="Wrap" Text="MIT License
 &#x0a;
                             &#x0a;
 Copyright (c) 2024 jpb (GitHub username jpbandroid)
@@ -128,10 +129,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."/>
-                                        <TextBlock FontSize="24" FontWeight="SemiBold" Text="Libraries used in UltraTextEdit"/>
-                                        <TextBlock FontWeight="SemiBold" Text="Fluent.Ribbon"/>
-                                    <TextBlock Text="Licensed under the MIT License."/>
-                                        <TextBlock TextWrapping="Wrap" Text="The MIT License (MIT)
+                                            <TextBlock FontSize="24" FontWeight="SemiBold" Text="Libraries used in UltraTextEdit"/>
+                                            <TextBlock FontWeight="SemiBold" Text="Fluent.Ribbon"/>
+                                            <TextBlock Text="Licensed under the MIT License."/>
+                                            <TextBlock TextWrapping="Wrap" Text="The MIT License (MIT)
 
 https://github.com/fluentribbon/Fluent.Ribbon
 Copyright (c) 2012-2023 Bastian Schmidt
@@ -154,9 +155,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."/>
-                                        <TextBlock FontWeight="SemiBold" Text="iNKORE.UI.WPF.Modern"/>
-                                    <TextBlock Text="Licensed under the LGPL 2.1-or-later License."/>
-                                        <TextBlock TextWrapping="Wrap" Text="                  GNU LESSER GENERAL PUBLIC LICENSE &#x0a;
+                                            <TextBlock FontWeight="SemiBold" Text="iNKORE.UI.WPF.Modern"/>
+                                            <TextBlock Text="Licensed under the LGPL 2.1-or-later License."/>
+                                            <TextBlock TextWrapping="Wrap" Text="                  GNU LESSER GENERAL PUBLIC LICENSE &#x0a;
                        Version 2.1, February 1999
 &#x0a;
  Copyright (C) 1991, 1999 Free Software Foundation, Inc.
@@ -660,60 +661,61 @@ necessary.  Here is a sample; alter the names:
   Ty Coon, President of Vice
 &#x0a;
 That's all there is to it!"/>
-                                    </StackPanel>
-                                </ScrollViewer>
-                            </Fluent:BackstageTabItem>
-                            <Fluent:BackstageTabItem VerticalAlignment="Bottom" Header="Account">
-                                <StackPanel Orientation="Horizontal" Margin="16">
-                                    <StackPanel>
-                                        <Rectangle Height="48"/>
-                                        <TextBlock FontWeight="SemiBold">Account</TextBlock>
-                                        <StackPanel Orientation="Horizontal">
-                                            <ui:PersonPicture x:Name="userpicture"/>
-                                            <TextBlock FontSize="24" Margin="16" FontWeight="Thin" x:Name="user" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </ScrollViewer>
+                                </Fluent:BackstageTabItem>
+                                <Fluent:BackstageTabItem VerticalAlignment="Bottom" Header="Account">
+                                    <StackPanel Orientation="Horizontal" Margin="16">
+                                        <StackPanel>
+                                            <Rectangle Height="48"/>
+                                            <TextBlock FontWeight="SemiBold">Account</TextBlock>
+                                            <StackPanel Orientation="Horizontal">
+                                                <ui:PersonPicture x:Name="userpicture"/>
+                                                <TextBlock FontSize="24" Margin="16" FontWeight="Thin" x:Name="user" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <StackPanel>
+                                            <Rectangle Height="48"/>
+                                            <TextBlock FontWeight="SemiBold">Update Options</TextBlock>
+                                            <Fluent:Button Header="Check for Updates" Click="update" Icon="sync.png"/>
                                         </StackPanel>
                                     </StackPanel>
-                                    <StackPanel>
-                                        <Rectangle Height="48"/>
-                                        <TextBlock FontWeight="SemiBold">Update Options</TextBlock>
-                                        <Fluent:Button Header="Check for Updates" Click="update" Icon="sync.png"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Fluent:BackstageTabItem>
-                        </Fluent:BackstageTabControl>
-                    </Fluent:Backstage>
-                </Fluent:Ribbon.Menu>
+                                </Fluent:BackstageTabItem>
+                            </Fluent:BackstageTabControl>
+                        </Fluent:Backstage>
+                    </Fluent:Ribbon.Menu>
 
-                <!--Tabs-->
-                <Fluent:RibbonTabItem Header="Home">
-                    <Fluent:RibbonGroupBox Header="Manage files">
-                        <Fluent:Button Header="Open" Click="Open" LargeIcon="open.png"/>
-                        <Fluent:Button Header="Save"  Click="Save" LargeIcon="save.png"/>
-                    </Fluent:RibbonGroupBox>
-                    <Fluent:RibbonGroupBox Header="Font">
-                        <StackPanel Orientation="Horizontal" Margin="4">
-                            <Fluent:ComboBox x:Name="FontFamilyBox" Width="150" SelectionChanged="FontFamilyBox_SelectionChanged" />
-                            <Fluent:ComboBox x:Name="FontSizeBox" IsEditable="True" Width="50" TextBoxBase.TextChanged="FontSizeBox_TextChanged"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="4">
-                            <Fluent:ToggleButton x:Name="Bold" Icon="bold.png" SizeDefinition="Small"/>
-                            <Fluent:ToggleButton x:Name="Italic" Icon="italic.png" SizeDefinition="Small"/>
-                            <Fluent:ToggleButton x:Name="Underline" Icon="underline.png" SizeDefinition="Small"/>
-                        </StackPanel>
-                    </Fluent:RibbonGroupBox>
-                </Fluent:RibbonTabItem>
-                <Fluent:RibbonTabItem Header="Help">
-                    <Fluent:RibbonGroupBox Header="About">
-                        <Fluent:Button Header="About" Click="About" LargeIcon="info.png"/>
-                    </Fluent:RibbonGroupBox>
-                </Fluent:RibbonTabItem>
-            </Fluent:Ribbon>
-        </StackPanel>
+                    <!--Tabs-->
+                    <Fluent:RibbonTabItem Header="Home">
+                        <Fluent:RibbonGroupBox Header="Manage files">
+                            <Fluent:Button Header="Open" Click="Open" LargeIcon="open.png"/>
+                            <Fluent:Button Header="Save"  Click="Save" LargeIcon="save.png"/>
+                        </Fluent:RibbonGroupBox>
+                        <Fluent:RibbonGroupBox Header="Font">
+                            <StackPanel Orientation="Horizontal" Margin="4">
+                                <Fluent:ComboBox x:Name="FontFamilyBox" Width="150" SelectionChanged="FontFamilyBox_SelectionChanged" />
+                                <Fluent:ComboBox x:Name="FontSizeBox" IsEditable="True" Width="50" TextBoxBase.TextChanged="FontSizeBox_TextChanged"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="4">
+                                <Fluent:ToggleButton x:Name="Bold" Icon="bold.png" SizeDefinition="Small"/>
+                                <Fluent:ToggleButton x:Name="Italic" Icon="italic.png" SizeDefinition="Small"/>
+                                <Fluent:ToggleButton x:Name="Underline" Icon="underline.png" SizeDefinition="Small"/>
+                            </StackPanel>
+                        </Fluent:RibbonGroupBox>
+                    </Fluent:RibbonTabItem>
+                    <Fluent:RibbonTabItem Header="Help">
+                        <Fluent:RibbonGroupBox Header="About">
+                            <Fluent:Button Header="About" Click="About" LargeIcon="info.png"/>
+                        </Fluent:RibbonGroupBox>
+                    </Fluent:RibbonTabItem>
+                </Fluent:Ribbon>
+            </StackPanel>
 
 
 
-        <RichTextBox x:Name="editor" SelectionChanged="editor_SelectionChanged" Grid.Row="2">
+            <RichTextBox x:Name="editor" SelectionChanged="editor_SelectionChanged" Grid.Row="2">
 
-        </RichTextBox>
-    </Grid>
+            </RichTextBox>
+        </Grid>
+    </local1:DpiDecorator>
 </Window>
