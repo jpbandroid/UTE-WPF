@@ -109,5 +109,10 @@ namespace UltraTextEdit
             temp = editor.Selection.GetPropertyValue(Inline.FontSizeProperty);
             FontSizeBox.Text = temp.ToString();
         }
+
+        private void editor_LostFocus(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

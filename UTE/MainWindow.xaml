@@ -45,7 +45,7 @@ ui:WindowHelper.UseModernWindowStyle="True">
                     FontWeight="Normal" Foreground="#0078d7"/>
                     </StackPanel>
                 </Border>
-                <Grid x:Name="InsiderGrid">
+                <Grid x:Name="InsiderGrid" Visibility="Collapsed">
                     <Button Background="#FFFFC225" Width="50" Height="25" Padding="0" Click="showinsiderinfo">
                         <Grid>
                             <TextBlock Text="DEV" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
@@ -70,10 +70,10 @@ Subtitle="The Dev Channel is the Insider Channel that receives builds with the l
                 <Fluent:Ribbon>
                     <!--Backstage-->
                     <Fluent:Ribbon.StartScreen>
-                        <Fluent:StartScreen Header="UltraTextEdit" IsOpen="True">
+                        <Fluent:StartScreen IsOpen="True">
                             <Fluent:StartScreenTabControl>
                                 <Fluent:StartScreenTabControl.LeftContent>
-                                    <TextBlock Padding="16" Text="UltraTextEdit" Foreground="White" FontWeight="SemiBold" FontSize="36"/>
+                                <TextBlock Padding="16" Text="UltraTextEdit" Foreground="#0078D7" FontWeight="SemiBold" FontSize="36"/>
                                 </Fluent:StartScreenTabControl.LeftContent>
                                 <Fluent:StartScreenTabControl.RightContent>
                                     <StackPanel>
@@ -90,7 +90,7 @@ Subtitle="The Dev Channel is the Insider Channel that receives builds with the l
                             <Fluent:BackstageTabControl>
                                 <Fluent:BackstageTabItem Header="About">
                                     <StackPanel>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="8">
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="32">
                                             <Image Source="/WindowIcon.ico" Height="64" Width="64"/>
                                             <TextBlock VerticalAlignment="Center" Text="UltraTextEdit" Foreground="#0078d7" FontSize="36" FontWeight="SemiBold"/>
                                         </StackPanel>
@@ -99,7 +99,7 @@ Subtitle="The Dev Channel is the Insider Channel that receives builds with the l
                                     </StackPanel>
                                 </Fluent:BackstageTabItem>
                                 <Fluent:BackstageTabItem Header="Open Source Licenses">
-                                    <ScrollViewer>
+                                    <ScrollViewer Margin="32">
                                         <StackPanel>
                                             <TextBlock FontWeight="SemiBold" Text="UltraTextEdit" FontSize="24"/>
                                             <TextBlock Text="Licensed under the MIT License."/>
@@ -664,13 +664,13 @@ That's all there is to it!"/>
                                     </ScrollViewer>
                                 </Fluent:BackstageTabItem>
                                 <Fluent:BackstageTabItem VerticalAlignment="Bottom" Header="Account">
-                                    <StackPanel Orientation="Horizontal" Margin="16">
+                                    <StackPanel Orientation="Horizontal" Margin="32">
                                         <StackPanel>
                                             <Rectangle Height="48"/>
                                             <TextBlock FontWeight="SemiBold">Account</TextBlock>
                                             <StackPanel Orientation="Horizontal">
                                                 <ui:PersonPicture x:Name="userpicture"/>
-                                                <TextBlock FontSize="24" Margin="16" FontWeight="Thin" x:Name="user" VerticalAlignment="Center"/>
+                                                <TextBlock FontSize="24" Margin="16,0,0,0" FontWeight="Thin" x:Name="user" VerticalAlignment="Center"/>
                                             </StackPanel>
                                         </StackPanel>
                                         <StackPanel>
@@ -692,14 +692,26 @@ That's all there is to it!"/>
                         </Fluent:RibbonGroupBox>
                         <Fluent:RibbonGroupBox Header="Font">
                             <StackPanel Orientation="Horizontal" Margin="4">
-                                <Fluent:ComboBox x:Name="FontFamilyBox" Width="150" SelectionChanged="FontFamilyBox_SelectionChanged" />
-                                <Fluent:ComboBox x:Name="FontSizeBox" IsEditable="True" Width="50" TextBoxBase.TextChanged="FontSizeBox_TextChanged"/>
+                                <ComboBox x:Name="FontFamilyBox" Width="150" SelectionChanged="FontFamilyBox_SelectionChanged" />
+                                <ComboBox x:Name="FontSizeBox" IsEditable="True" Width="50" TextBoxBase.TextChanged="FontSizeBox_TextChanged"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="4">
-                                <Fluent:ToggleButton x:Name="Bold" Icon="bold.png" SizeDefinition="Small"/>
-                                <Fluent:ToggleButton x:Name="Italic" Icon="italic.png" SizeDefinition="Small"/>
-                                <Fluent:ToggleButton x:Name="Underline" Icon="underline.png" SizeDefinition="Small"/>
-                            </StackPanel>
+                                <ToggleButton Background="Transparent" BorderBrush="Transparent" x:Name="Bold">
+                                <ToggleButton.Content>
+                                    <Image Height="16" Source="bold.png"/>
+                                </ToggleButton.Content>
+                                </ToggleButton>
+                            <ToggleButton Background="Transparent" BorderBrush="Transparent" x:Name="Italic">
+                                <ToggleButton.Content>
+                                    <Image Height="16" Source="italic.png"/>
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                            <ToggleButton Background="Transparent" BorderBrush="Transparent" x:Name="Underline">
+                                <ToggleButton.Content>
+                                    <Image Height="16" Source="underline.png"/>
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                        </StackPanel>
                         </Fluent:RibbonGroupBox>
                     </Fluent:RibbonTabItem>
                     <Fluent:RibbonTabItem Header="Help">
@@ -712,7 +724,7 @@ That's all there is to it!"/>
 
 
 
-            <RichTextBox x:Name="editor" SelectionChanged="editor_SelectionChanged" Grid.Row="2">
+            <RichTextBox x:Name="editor" SelectionChanged="editor_SelectionChanged" LostFocus="editor_LostFocus" Grid.Row="2">
 
             </RichTextBox>
         </Grid>
